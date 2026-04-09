@@ -1,0 +1,12 @@
+# Backend
+bin/
+obj/
+.vs/
+
+# Frontend
+node_modules/
+dist/
+
+# VS
+*.user
+*.suo
