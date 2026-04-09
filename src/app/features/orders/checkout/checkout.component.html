@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow border-0 rounded-4">
+      <div class="card-body p-4">
+        <h3 class="fw-bold mb-4">Checkout</h3>
+
+        <div class="mb-3">
+          <label>Shipping Address</label>
+          <textarea class="form-control" rows="4" [(ngModel)]="shippingAddress"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label>Payment Method</label>
+          <select class="form-select" [(ngModel)]="paymentMethod">
+            <option>Cash on Delivery</option>
+            <option>UPI</option>
+            <option>Card</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary w-100" (click)="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</div>

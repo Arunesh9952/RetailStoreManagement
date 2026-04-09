@@ -1,0 +1,36 @@
+<div class="card shadow border-0 rounded-4">
+  <div class="card-body p-4">
+    <h3 class="fw-bold mb-4">My Orders</h3>
+
+    <div *ngIf="orders.length; else noOrders">
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead>
+            <tr>
+              <th>Order Id</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.id }}</td>
+              <td>{{ order.orderDate | date:'medium' }}</td>
+              <td>₹ {{ order.totalAmount }}</td>
+              <td>
+                <span class="badge bg-success">{{ order.status }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #noOrders>
+      <div class="text-center text-muted py-5">
+        No orders found.
+      </div>
+    </ng-template>
+  </div>
+</div>

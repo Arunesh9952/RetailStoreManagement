@@ -1,0 +1,17 @@
+<div class="row g-4" *ngIf="product">
+  <div class="col-md-5">
+    <img [src]="product.imageUrl || 'https://via.placeholder.com/400x300'" class="img-fluid rounded shadow" alt="product">
+  </div>
+
+  <div class="col-md-7">
+    <h2 class="fw-bold">{{ product.name }}</h2>
+    <p class="text-muted">{{ product.description }}</p>
+    <h4 class="text-primary fw-bold mb-3">₹ {{ product.price }}</h4>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
+
+    <div class="d-flex align-items-center gap-3 mt-3">
+      <input type="number" class="form-control w-25" [(ngModel)]="quantity" min="1">
+      <button class="btn btn-warning px-4" (click)="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>

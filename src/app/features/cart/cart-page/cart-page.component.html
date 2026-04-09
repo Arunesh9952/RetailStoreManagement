@@ -1,0 +1,43 @@
+<div class="card shadow border-0 rounded-4">
+  <div class="card-body p-4">
+    <h3 class="fw-bold mb-4">My Cart</h3>
+
+    <div *ngIf="cart?.items?.length; else emptyCart">
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart.items">
+              <td>{{ item.product.name }}</td>
+              <td>₹ {{ item.product.price }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>₹ {{ item.product.price * item.quantity }}</td>
+              <td>
+                <button class="btn btn-sm btn-danger" (click)="removeItem(item.productId)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-end">
+        <h5 class="fw-bold">Grand Total: ₹ {{ total }}</h5>
+        <button class="btn btn-success mt-2" (click)="goToCheckout()">Proceed to Checkout</button>
+      </div>
+    </div>
+
+    <ng-template #emptyCart>
+      <div class="text-center text-muted py-5">
+        Your cart is empty.
+      </div>
+    </ng-template>
+  </div>
+</div>
